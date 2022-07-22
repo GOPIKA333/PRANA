@@ -1,0 +1,155 @@
+h2{
+font-size: 50px;
+    color: white;
+    margin: 0px 0px 10px 0px;
+    line-height: 60px;}
+body{
+  background-image: url("l1.jpg");
+  
+}
+.first {
+  border: 5px solid white;
+  background-color: #326872;    
+  text-align: center;
+  padding: 30px;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+}
+nav ul {
+    display: flex;
+}
+nav ul li a {
+    height: 40px;
+    line-height: 43px;
+    margin: 3px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #326872;
+    letter-spacing: 1px;
+}
+nav ul li a:hover {
+    background-color: #326872;
+    color: black;
+}
+.home-text {
+    width: 500px;
+}
+
+.home-text h1 {
+    font-size: 50px;
+    color: black;
+    margin: 10px 10px 10px 10px;
+    line-height: 60px;
+}
+
+.home-text p {
+    columns: #747474;
+   
+}
+.pbtn {
+    width: 200px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #326872;
+    border-radius: 20px;
+}
+
+.pbtn:hover {
+    background-color: #326872;
+    transition: all case 0.2s;
+}
+#skills {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: auto auto 50px auto;
+}
+.skills-heading h2 {
+    color: black;
+    background-color: Orange;
+    font-size: 3.3rem;
+    margin: 0px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.skills-box {
+    display: flex;
+    margin: 25px 0px;
+    border: 5px solid pink;
+  background-color: white;    
+  text-align: center;
+  padding: 30px;
+}
+.row {
+  margin: 8px -16px;
+}
+.row > .column {
+  padding: 8px;
+}
+.column {
+  float: left;
+  width: 25%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.content {
+  background-color:#326872 ;
+  padding: 10px;
+  border:10px solid white;
+  color:white;
+}
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px;
+}
+#contact h3 {
+    font-size: 30px;
+    margin: 20px;
+  background-color: #326872; 
+  color: white;  
+}
+
+.contact-input {
+    width: 400px;
+    height: 50px;
+    background-color: white ;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+}
+.about-box{
+color:white;
+background-color:#326872;
+width:50%;
+border:10px solid white;
+}

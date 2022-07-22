@@ -1,0 +1,40 @@
+body{
+  background-image: url("l1.jpg");
+  
+}
+.first {
+  border: 5px solid white;
+  background-color: #326872;    
+  text-align: center;
+  padding: 30px;
+}
+.column {
+  float: left;
+  width: 100%;
+}
+.content {
+  padding: 10px;
+  border:10px solid white;
+  color:white;
+}
+h5{
+font-size: 25px;
+color: white;
+margin: 0px 0px 10px 0px;
+line-height: 60px;}
+h7{
+font-size: 20px;
+color: white;
+margin: 0px 0px 10px 0px;
+line-height: 60px;}
+h2{
+font-size: 50px;
+color: white;
+margin: 0px 0px 10px 0px;
+line-height: 60px;}
+h3{
+font-size: 25px;
+color: white;
+margin: 0px 0px 10px 0px;
+line-height: 60px;
+background-color:#326872;}
