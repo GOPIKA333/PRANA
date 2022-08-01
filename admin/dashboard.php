@@ -176,8 +176,7 @@
                      <td><?php echo $fetch2['appointment_date']; ?></td>
                      <td><?php echo $fetch2['slot']; ?></td>
                      <td> <form class="" action="process.php" method="post">
-                       <input type="text" name="=id" value="">
-                       <button class="btn btn-dark" name="accept_request" type="submit" >Accept</button>
+                       <button class="btn btn-dark" name="accept_request" value="<?php  echo $fetch2['id'];?>" type="submit" >Accept</button>
                      </form> </td>
                    </tr>
                  <?php } ?>

@@ -27,7 +27,9 @@ if(ISSET($_POST['login'])){
 
 // ACCEPT APPOINTMENT REQUESTS
 if(ISSET($_POST['accept_request'])){
-  $id = $_REQUEST['id'];
-  echo $id;
+  $id = $_POST['accept_request'];
+  $sql = "UPDATE appointments SET status=1 WHERE id='$id'";
+  mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
+  header('location: dashboard.php');
 }
  ?>
