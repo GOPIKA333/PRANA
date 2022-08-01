@@ -3,6 +3,16 @@
   if(!ISSET($_SESSION['user_name'])){
     header('location: login.php');
   }
+  $dbhost = 'localhost';
+  $dbuser = 'root';
+  $dbpass = 'zaq12wsx';
+  $db     = 'prana';
+  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
+
+  if($mysqli->connect_errno ) {
+     echo "Connect failed: .$mysqli->connect_error.<br />";
+     exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,46 +38,60 @@
     <div class="hero-container">
       <h1>Schedule Appointment</h1>
       <div class="appointment">
-        <form class="appointment-form row">
+        <form class="appointment-form row" action="process.php" method="post">
       <div class="form-field col-lg-6">
-         <input id="name" class="input-text js-input" type="text" placeholder="Name" required>
+         <input id="name" name="name" class="input-text js-input" type="text" placeholder="Name" required>
          <!-- <label class="label" for="name">Name</label> -->
       </div>
       <div class="form-field col-lg-3 ">
-         <input id="email" class="input-text js-input" type="email" placeholder="Age" required>
+         <input id="age" name="age" class="input-text js-input" type="text" placeholder="Age" required>
          <!-- <label class="label" for="email">Age</label> -->
       </div>
       <div class="form-field col-lg-3 ">
-         <input id="email" class="input-text js-input" type="email" placeholder="Gender" required>
-         <!-- <label class="label" for="email">Gender</label> -->
+        <select name="gender" class="input-text js-input custom-select" placeholder="Gender" required>
+          <option selected disabled>Select Gender</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Rather not say">Rather not say</option>
+        </select>
       </div>
       <div class="form-field col-lg-6 ">
-         <input id="company" class="input-text js-input" type="text" placeholder="Contact number" required>
+         <input id="mobileno" name="mobileno" class="input-text js-input" type="text" placeholder="Contact number" required>
          <!-- <label class="label" for="company">Contact number</label> -->
       </div>
        <div class="form-field col-lg-6 ">
-         <input id="phone" class="input-text js-input" type="text" placeholder="Contact Email" required>
+         <input id="email" name="email" class="input-text js-input" type="email" placeholder="Contact Email" required>
          <!-- <label class="label" for="phone">Contact Email</label> -->
       </div>
       <div class="form-field col-lg-6">
-        <select class="input-text js-input custom-select" placeholder="Doctor" required>
+        <select  name="doctor" class="input-text js-input custom-select" placeholder="Doctor" required>
           <option selected disabled>Choose Doctor</option>
-          <option>Lachs-Carpaccio</option>
-          <option>Pizza</option>
+          <?php
+          $query = mysqli_query($mysqli, "SELECT * FROM `doctors` ") or die(mysqli_error());
+          $row = mysqli_num_rows($query);
+          for($x = 1; $x<= $row; $x++){
+            $fetch= mysqli_fetch_assoc($query);
+           ?>
+           <option value="<?php echo $fetch['id']; ?>"><?php echo $fetch['name']; ?></option>
+         <?php } ?>
         </select>
 
       </div>
       <div class="form-field col-lg-3 ">
-         <input id="date" class="input-text js-input" type="date" placeholder="Date" required>
+         <input id="date" name="date" class="input-text js-input" type="date" placeholder="Date" required>
       </div>
       <div class="form-field col-lg-3 ">
-        <select class="input-text js-input custom-select" placeholder="Time Slot" required>
+        <select name="slot" class="input-text js-input custom-select" placeholder="Time Slot" required>
           <option selected disabled>Select Time Slot</option>
-          <option value=""></option>
+          <option value="1">9:30am to 10:30am</option>
+          <option value="2">10:30am to 11:30am</option>
+          <option value="3">12:00pm to 1:00pm</option>
+          <option value="4">2:00pm to 3:00pm</option>
+          <option value="5">3:00pm to 4:00pm</option>
         </select>
       </div>
       <div class="form-field col-lg-12">
-         <input class="submit-btn" type="submit" value="Submit">
+         <input class="submit-btn" type="submit" name="submit" value="Submit">
       </div>
    </form>
       </div>
@@ -111,3 +135,21 @@
   </header><!-- End Header -->
 </body>
 </html>
+
+<?php
+// ADD APPOINTMENT
+if(ISSET($_POST['submit'])){
+  $name=$_POST['name'];
+  $email=$_POST['email'];
+  $mobileno=$_POST['mobileno'];
+  $age=$_POST['age'];
+  $gender=$_POST['gender'];
+  $doctor=$_POST['doctor'];
+  $date=$_POST['date'];
+  $slot=$_POST['slot'];
+  $userid = $_SESSION['userid'];
+
+  $sql = "INSERT INTO appointments (user_id, name, age, gender, mobileno, email, doctor, appointment_date, slot, status) VALUES($userid, $name, $age, $gender, $mobileno, $email, $doctor, $date, $slot, 0)";
+    mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
+}
+ ?>

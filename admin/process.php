@@ -23,4 +23,11 @@ if(ISSET($_POST['login'])){
     echo "<div class='alert alert-danger'>Invalid email or password</div>";
   }
 }
+
+
+// ACCEPT APPOINTMENT REQUESTS
+if(ISSET($_POST['accept_request'])){
+  $id = $_REQUEST['id'];
+  echo $id;
+}
  ?>

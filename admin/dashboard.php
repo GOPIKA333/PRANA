@@ -27,6 +27,7 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/bootstrap.css">
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
@@ -71,13 +72,13 @@
           <li class="mb-4">
             <a href="#"><span class="fa-solid fa-calendar-check"></span></a>
           </li>
+
+          <li>
+            <a href="logout.php" class="toggle-off"><span class="fa-solid fa-arrow-right-from-bracket"></span></a>
+          </li>
         </ul>
 
-        <div class="footer">
-        	<p>
-					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-					</p>
-        </div>
+
     	</nav>
 
         <!-- Page Content  -->
@@ -111,6 +112,7 @@
         <div class="row">
           <div class="col-md-5">
             <div class="card  main-card w-100">
+              <h4>Doctors</h4>
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -122,13 +124,18 @@
                 </thead>
                 <tbody>
                   <?php
-                  $table = 'doctors';
-                  $result = mysqli_query("SELECT * FROM {$table}");
-                  $row = mysqli_fetch_array($result);
-                  echo '<tr><td>'.$row['id'].'</td></tr>';
-
+                  $query1 = mysqli_query($mysqli, "SELECT * FROM `doctors` ") or die(mysqli_error());
+                  $row1 = mysqli_num_rows($query1);
+                  for($x = 1; $x<= $row1; $x++){
+                    $fetch1= mysqli_fetch_assoc($query1);
                    ?>
-
+                   <tr>
+                     <td><?php echo $fetch1['id']; ?></td>
+                     <td><?php echo $fetch1['name']; ?></td>
+                     <td><?php echo $fetch1['mobileno']; ?></td>
+                     <td><?php echo $fetch1['email']; ?></td>
+                   </tr>
+                 <?php } ?>
 
                </tbody>
               </table>
@@ -136,6 +143,7 @@
           </div>
           <div class="col-md-7">
             <div class="card  main-card w-100">
+              <h4>Appointment requests</h4>
               <table class="table table-striped ">
                 <thead>
                   <tr>
@@ -149,6 +157,31 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                  $query2 = mysqli_query($mysqli, "SELECT * FROM `appointments` WHERE `status`=0") or die(mysqli_error());
+                  $row2 = mysqli_num_rows($query2);
+                  for($x = 1; $x<= $row2; $x++){
+                    $fetch2= mysqli_fetch_assoc($query2);
+                   ?>
+                   <tr>
+                     <td><?php echo $fetch2['id']; ?></td>
+                     <td><?php echo $fetch2['name']; ?></td>
+                     <td><?php echo $fetch2['mobileno']; ?></td>
+                     <td><?php
+                      $doc_id = $fetch2['doctor'];
+                       $doctor = mysqli_query($mysqli, "SELECT * FROM `doctors` WHERE `id`='$doc_id'") or die(mysqli_error());
+                       $doc_fetch=mysqli_fetch_array($doctor);
+                       echo $doc_fetch['name'];
+                      ?></td>
+                     <td><?php echo $fetch2['appointment_date']; ?></td>
+                     <td><?php echo $fetch2['slot']; ?></td>
+                     <td> <form class="" action="process.php" method="post">
+                       <input type="text" name="=id" value="">
+                       <button class="btn btn-dark" name="accept_request" type="submit" >Accept</button>
+                     </form> </td>
+                   </tr>
+                 <?php } ?>
+
 
                </tbody>
 
