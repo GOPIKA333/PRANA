@@ -67,10 +67,10 @@
             <a href=""><span class="fa fa-home"></span></a>
           </li>
           <li class="mb-4">
-            <a href="#"><span class="fa-solid fa-user-doctor"></span></a>
+            <a href="#doctors" class="doctors"><span class="fa-solid fa-user-doctor"></span></a>
           </li>
           <li class="mb-4">
-            <a href="#"><span class="fa-solid fa-calendar-check"></span></a>
+            <a href="#appointments" class="appointments"><span class="fa-solid fa-calendar-check"></span></a>
           </li>
 
           <li>
@@ -88,7 +88,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card mb-5">
+            <div class="card mb-5 p-2">
               <h4>Add Doctor</h4>
               <form class="" action="" method="post">
                 <div class="row">
@@ -111,7 +111,7 @@
         </div>
         <div class="row">
           <div class="col-md-5">
-            <div class="card  main-card w-100">
+            <div class="card doctors main-card w-100">
               <h4>Doctors</h4>
               <table class="table table-striped">
                 <thead>
@@ -142,7 +142,7 @@
             </div>
           </div>
           <div class="col-md-7">
-            <div class="card  main-card w-100">
+            <div class="card appointments main-card w-100">
               <h4>Appointment requests</h4>
               <table class="table table-striped ">
                 <thead>
