@@ -1,8 +1,12 @@
 <?php
   session_start();
+
+  // Head to login if session variable is not set
   if(!ISSET($_SESSION['user_name'])){
     header('location: login.php');
   }
+
+  // CONNECTION
   $dbhost = 'localhost';
   $dbuser = 'root';
   $dbpass = 'zaq12wsx';

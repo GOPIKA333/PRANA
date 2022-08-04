@@ -104,29 +104,29 @@
       </div>
 
       <div class="quiz-container mx-auto" id="quiz">
-    <div class="quiz-header">
-        <h2 id="question">Question text</h2>
-        <ul>
-            <li>
-                <input type="radio" name="answer" id="a" class="answer">
-                <label for="a" id="a_text"> Question</label>
-            </li>
-            <li>
-                <input type="radio" name="answer" id="b" class="answer">
-                <label for="b" id="b_text"> Question</label>
-            </li>
-            <li>
-                <input type="radio" name="answer" id="c" class="answer">
-                <label for="c" id="c_text"> Question</label>
-            </li>
-            <li>
-                <input type="radio" name="answer" id="d" class="answer">
-                <label for="d" id="d_text"> Question</label>
-            </li>
-        </ul>
-    </div>
-    <button id="submit" class="btn submit-btn w-100">Next</button>
-</div>
+          <div class="quiz-header">
+              <h2 id="question">Question text</h2>
+              <ul>
+                  <li>
+                      <input type="radio" name="answer" id="a" class="answer">
+                      <label for="a" id="a_text"> Question</label>
+                  </li>
+                  <li>
+                      <input type="radio" name="answer" id="b" class="answer">
+                      <label for="b" id="b_text"> Question</label>
+                  </li>
+                  <li>
+                      <input type="radio" name="answer" id="c" class="answer">
+                      <label for="c" id="c_text"> Question</label>
+                  </li>
+                  <li>
+                      <input type="radio" name="answer" id="d" class="answer">
+                      <label for="d" id="d_text"> Question</label>
+                  </li>
+              </ul>
+          </div>
+          <button id="submit" class="btn submit-btn w-100">Next</button>
+      </div>
     </div>
 
     </div>
@@ -168,6 +168,7 @@
   </header><!-- End Header -->
 
   <script type="text/javascript">
+
   const quizData = [{
   question: "Feeling down, depressed or hopeless?",
   a: "Not at all",
@@ -251,71 +252,73 @@ d: "Nearly every day",
   loadQuiz();
 
   function loadQuiz(){
-  deselectAnswer();
+    deselectAnswer();
 
-  const currentQuizData = quizData[currentQuiz];
+    const currentQuizData = quizData[currentQuiz];
 
-  questionEl.innerText = currentQuizData.question;
-  a_text.innerText = currentQuizData.a;
-  b_text.innerText = currentQuizData.b;
-  c_text.innerText = currentQuizData.c;
-  d_text.innerText = currentQuizData.d;
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
   }
 
   function deselectAnswer() {
-  answerEls.forEach(answerEl => answerEl.checked = false);
+    answerEls.forEach(answerEl => answerEl.checked = false);
   }
 
   function getSelected() {
-  let answer;
+    let answer;
 
-  answerEls.forEach(answerEl => {
-  if(answerEl.checked) {
-  answer = answerEl.id;
-  }
-  });
+    answerEls.forEach(answerEl => {
+      if(answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
 
-  return answer;
+    return answer;
   }
 
   submitBtn.addEventListener('click', () => {
-  const answer = getSelected();
+    const answer = getSelected();
 
-  if(answer) {
-    if(answer === 'a') {
-      score+=1;
-    }
-    else if(answer === 'b') {
-      score+=2;
-    }
-    else if(answer === 'c') {
-      score+=3;
-    }
-    else if(answer === 'd'){
-      score+=4;
-    }
-
-
-  currentQuiz++;
-  console.log($(score));
-  if(currentQuiz < quizData.length){ loadQuiz(); } else {
-        if ($(score)[0]>=10 && $(score)[0]<=20) {
-          quiz.innerHTML=` <h2> It seems like you are happy and enjoying your life!</h2> <button class="btn btn-dark" onclick="location.reload()">
-              Reload
-          </button>`;
-        }
-        else if ($(score)[0]>20 && $(score)[0]<=30) {
-          quiz.innerHTML=` <h2> Hmm! Feel free to contact us if you need any help.</h2> <button class="btn btn-dark" onclick="location.reload()">
-              Reload
-          </button>`;
-        }
-        else if ($(score)[0]>30 && $(score)[0]<=40) {
-          quiz.innerHTML=` <h2> It feels like you are depressed. Don't worry, our team is always ready to help you.</h2> <button class="btn submit-btn w-25 mx-auto" onclick="location.reload()">
-              Reload
-          </button>`;
-        }
+    if(answer) {
+      if(answer === 'a') {
+        score+=1;
       }
+      else if(answer === 'b') {
+        score+=2;
       }
+      else if(answer === 'c') {
+        score+=3;
+      }
+      else if(answer === 'd'){
+        score+=4;
+      }
+
+
+    currentQuiz++;
+
+    if(currentQuiz < quizData.length) {
+      loadQuiz();
+    } else {
+          if ($(score)[0]>=10 && $(score)[0]<=20) {
+            quiz.innerHTML=` <h2> It seems like you are happy and enjoying your life!</h2> <button class="btn submit-btn w-25 mx-auto" onclick="location.reload()">
+                Reload
+            </button>`;
+          }
+          else if ($(score)[0]>20 && $(score)[0]<=30) {
+            quiz.innerHTML=` <h2> Hmm! Feel free to contact us if you need any help.</h2> <button class="btn submit-btn w-25 mx-auto" onclick="location.reload()">
+                Reload
+            </button>`;
+          }
+          else if ($(score)[0]>30 && $(score)[0]<=40) {
+            quiz.innerHTML=` <h2> It feels like you are depressed. Don't worry, our team is always ready to help you.</h2> <button class="btn submit-btn w-25 mx-auto" onclick="location.reload()">
+                Reload
+            </button>`;
+          }
+        }
+        }
       })
   </script>
 </body>

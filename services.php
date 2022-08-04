@@ -10,7 +10,13 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <style media="screen">
+    .icon-box {
+      max-height: 12em;
+    }
+  </style>
 </head>
+
 <body class="h-100">
 
   <!-- ======= Services Section ======= -->
@@ -19,7 +25,6 @@
 
       <div class="section-title">
         <h2>Services</h2>
-
       </div>
 
       <div class="row">
@@ -27,14 +32,14 @@
           <div class="icon-box">
             <div class="icon"><i class="bi bi-music-player" style="color: #ff689b;"></i></div>
             <h4 class="title"><a href="audios.php">Calming Audios</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            <p class="description">“No matter what race or religion or nationality or sexual orientation or gender that you are, Music has the power to unite us.” <i>__Lady Gaga</i> </p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-camera-video" style="color: #e9bf06;"></i></div>
             <h4 class="title"><a href="videos.php">Videos</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            <p class="description">We put together a collection of short videos for our own emotional well-being. The videos feature strategies and techniques shared by mental health experts at Prana</p>
           </div>
         </div>
 
@@ -42,14 +47,14 @@
           <div class="icon-box">
             <div class="icon"><i class="bi bi-phone-landscape" style="color: #3fcdc7;"></i></div>
             <h4 class="title"><a href="games.php">Games</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p class="description">Games can be a great way to stimulate your mind and improve your mental health</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-info-square" style="color:#41cf2e;"></i></div>
             <h4 class="title"><a href="tips.php">Tips</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            <p class="description">We have included some tips to make a change in your routine.</p>
           </div>
         </div>
 
@@ -57,14 +62,14 @@
           <div class="icon-box">
             <div class="icon"><i class="bi bi-bar-chart-steps" style="color: #d6ff22;"></i></div>
             <h4 class="title"><a href="statustracker.php">Status Tracker</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            <p class="description">We provided a status tracker which indicates your current mental health phase based on the answers you give.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-calendar2-date" style="color: #4680ff;"></i></div>
             <h4 class="title"><a href="appointment.php">Appointment</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            <p class="description">Book an appointment to start recieving your sessions regarding your problems. We are here to help you!</p>
           </div>
         </div>
       </div>

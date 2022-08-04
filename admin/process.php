@@ -7,6 +7,7 @@ $db     = 'prana';
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 session_start();
+
 // LOGIN
 if(ISSET($_POST['login'])){
   $username = $_POST['username'];

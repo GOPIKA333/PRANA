@@ -6,6 +6,11 @@
   $db     = 'prana';
   $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
+  if($mysqli->connect_errno ) {
+     echo "Connect failed: .$mysqli->connect_error.<br />";
+     exit();
+  }
+
 
   // REGISTER
   if(ISSET($_POST['register'])){
@@ -13,7 +18,7 @@
     $email=$_POST['email'];
     $password=$_POST['password'];
     $cpassword=$_POST['cpassword'];
-    echo $name, $email, $password;
+
     $sql = "INSERT INTO users (name, email, password) VALUES('$name', '$email', '$password')";
 
     if ($password == $cpassword) {

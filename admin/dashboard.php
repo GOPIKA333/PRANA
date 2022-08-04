@@ -5,7 +5,7 @@
   $db     = 'prana';
   $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
-  // REGISTER
+  // ADD DOCTOR
   if(ISSET($_POST['add_doctor'])){
     $name=$_POST['name'];
     $email=$_POST['email'];
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/popper.js"></script>
+
     <script src="../js/bootstrap.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" charset="utf-8"></script>
 
@@ -67,10 +67,10 @@
             <a href=""><span class="fa fa-home"></span></a>
           </li>
           <li class="mb-4">
-            <a href="#doctors" class="doctors"><span class="fa-solid fa-user-doctor"></span></a>
+            <a href="#doctors" class="doctor"><span class="fa-solid fa-user-doctor"></span></a>
           </li>
           <li class="mb-4">
-            <a href="#appointments" class="appointments"><span class="fa-solid fa-calendar-check"></span></a>
+            <a href="#appointments" class="appointment"><span class="fa-solid fa-calendar-check"></span></a>
           </li>
 
           <li>
@@ -112,7 +112,7 @@
         <div class="row">
           <div class="col-md-5">
             <div class="card doctors main-card w-100">
-              <h4>Doctors</h4>
+              <h4 class="p-2">Doctors</h4>
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -143,7 +143,7 @@
           </div>
           <div class="col-md-7">
             <div class="card appointments main-card w-100">
-              <h4>Appointment requests</h4>
+              <h4 class="p-2">Appointment requests</h4>
               <table class="table table-striped ">
                 <thead>
                   <tr>
@@ -168,7 +168,7 @@
                      <td><?php echo $fetch2['name']; ?></td>
                      <td><?php echo $fetch2['mobileno']; ?></td>
                      <td><?php
-                      $doc_id = $fetch2['doctor'];
+                       $doc_id = $fetch2['doctor'];
                        $doctor = mysqli_query($mysqli, "SELECT * FROM `doctors` WHERE `id`='$doc_id'") or die(mysqli_error());
                        $doc_fetch=mysqli_fetch_array($doctor);
                        echo $doc_fetch['name'];
@@ -195,6 +195,10 @@
     <script type="text/javascript">
     $(document).ready(function () {
       $('#doctor').DataTable();
+
+      $('.doctor').click(function() {
+        $('.doctors').css('box-shadow',' 0px 5px 15px rgba(0, 0, 0, 0.1);');
+      });
     });
     </script>
   </body>

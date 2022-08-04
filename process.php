@@ -7,6 +7,7 @@ $db     = 'prana';
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 session_start();
+
 // LOGIN
 if(ISSET($_POST['login'])){
   $email = $_POST['email'];
@@ -25,6 +26,8 @@ if(ISSET($_POST['login'])){
   }
 }
 
+
+// APPOINTMENT
 if(ISSET($_POST['submit'])){
   $name=$_POST['name'];
   $email=$_POST['email'];
@@ -35,8 +38,9 @@ if(ISSET($_POST['submit'])){
   $date=$_POST['date'];
   $slot=$_POST['slot'];
   $userid = $_SESSION['userid'];
+
   $sql = "INSERT INTO appointments ( user_id, name, age, gender, mobileno, email, doctor, appointment_date, slot, status) VALUES('$userid', '$name', '$age', '$gender', '$mobileno', '$email', '$doctor', '$date', '$slot', 0)";
   mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
-  header('location: home.php');
+  header('location: index.php');
 }
  ?>
